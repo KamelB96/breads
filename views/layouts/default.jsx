@@ -4,7 +4,7 @@ function Default(html) {
   return (
     <html>
         <head>
-            <title>Default</title>
+            <title>{html.title || 'default'}</title>
         </head>
         <body>
             <h1>HTML Rendered!</h1>
