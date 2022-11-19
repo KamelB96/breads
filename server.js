@@ -4,8 +4,9 @@ require('dotenv').config()
 const PORT = process.env.PORT
 const app = express()
 
-//MiddleWare
-app.use(express.static ('publiuc'))
+// MIDDLEWARE
+app.use(express.urlencoded({extended: true}))
+app.use(express.static ('public'))
 app.set ('views', __dirname + '/views')
 app.set ('view engine', 'jsx')
 app.engine ('jsx', require ('express-react-views') .createEngine ())
