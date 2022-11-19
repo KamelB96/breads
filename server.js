@@ -5,6 +5,7 @@ const PORT = process.env.PORT
 const app = express()
 
 //MiddleWare
+app.use(express.static ('publiuc'))
 app.set ('views', __dirname + '/views')
 app.set ('view engine', 'jsx')
 app.engine ('jsx', require ('express-react-views') .createEngine ())
@@ -18,6 +19,11 @@ app.get('/', (req, res) => {
 const breadsController = require('./controllers/breads_controller.js')
 app.use('/breads', breadsController)
 
+// 404 Page
+app.get('*', (req, res) => {
+    res.send('404')
+  })
+  
 
 //Listen
 app.listen(PORT, () => {
